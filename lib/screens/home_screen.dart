@@ -38,12 +38,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
     //google sign out
     await GoogleSignIn().signOut();
-
-    Navigator.pushReplacement(
+    if (context.mounted) {
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => const AuthScreen(),
-        ));
+        ),
+      );
+    }
   }
 
   //To display WebPage
@@ -76,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
           automaticallyImplyLeading: false,
           title: Text(
             'Hello $currentUser',
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
           ),
           actions: [
             TextButton.icon(

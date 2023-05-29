@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:internship_app/screens/home_screen.dart';
 import 'package:internship_app/widget/sign_In_google.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -47,11 +46,13 @@ class _SignInState extends State<SignIn> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('email', _email.text);
 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
-      ),
-    );
+    if (context.mounted) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ),
+      );
+    }
     setState(() {
       _isLoading = false;
     });

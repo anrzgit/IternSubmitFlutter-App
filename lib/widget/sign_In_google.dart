@@ -14,7 +14,6 @@ class SignInGoogle extends StatefulWidget {
 
 class _SignInGoogleState extends State<SignInGoogle> {
   var _isAuthanticating = false;
-  late String _userEmail;
 
   // Future<void> getUser() async {
   //   SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -51,11 +50,13 @@ class _SignInGoogleState extends State<SignInGoogle> {
       SharedPreferences preferences = await SharedPreferences.getInstance();
       preferences.setString('email', userCredential.user!.email ?? "Anon User");
 
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
+      if (context.mounted) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        );
+      }
     } catch (e) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
