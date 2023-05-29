@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:internship_app/screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -75,7 +76,10 @@ class _SignInGoogleState extends State<SignInGoogle> {
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
       onPressed: signIn,
-      icon: const Icon(Icons.g_mobiledata_outlined),
+      icon: SvgPicture.asset(
+        'assets/svgs/g_logo.svg',
+        width: 26,
+      ),
       label: _isAuthanticating
           ? const CircularProgressIndicator()
           : const Text("Sign in with google "),

@@ -82,19 +82,23 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Alleaze InternApp'),
-      ),
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.85,
+          height: MediaQuery.of(context).size.height * 0.90,
           margin: const EdgeInsets.all(30),
-          color: Theme.of(context).colorScheme.background,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset("assets/images/signin_balls.png"),
               const Spacer(),
+              const Text(
+                'Alleaze InternApp',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Spacer(),
               const Text(
                 "SIGN UP",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
