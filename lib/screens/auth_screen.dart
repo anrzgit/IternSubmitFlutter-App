@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:internship_app/screens/home_screen.dart';
 import 'package:internship_app/screens/sign_In_screen.dart';
+import 'package:internship_app/widget/sign_In_google.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -53,12 +54,13 @@ class _AuthScreenState extends State<AuthScreen> {
       _isAuthenticating = false;
     });
 
+    //saving locally
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('email', _email.text);
 
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => HomeScreen(currentUser: _userName.text),
+        builder: (context) => const HomeScreen(),
       ),
     );
   }
@@ -84,66 +86,74 @@ class _AuthScreenState extends State<AuthScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Alleaze InternApp'),
       ),
-      body: Container(
-        color: Theme.of(context).colorScheme.background,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.all(30),
-              child: Column(
-                children: [
-                  const Text(
-                    "SIGN UP",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  TextField(
-                    controller: _userName,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Username',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  TextField(
-                    controller: _email,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Email',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  TextField(
-                    obscureText: true,
-                    controller: _password,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Password',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  IconButton(
-                    icon: _isAuthenticating
-                        ? const CircularProgressIndicator()
-                        : const Text('Submit'),
-                    onPressed: _submit,
-                  ),
-                  TextButton(
-                    onPressed: _changeToSignIn,
-                    child: const Text('Already A User ? Sign in'),
-                  ),
-                ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.85,
+          margin: const EdgeInsets.all(30),
+          color: Theme.of(context).colorScheme.background,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              const Text(
+                "SIGN UP",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 12,
+              ),
+              TextField(
+                controller: _userName,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Username',
+                ),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              TextField(
+                controller: _email,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Email',
+                ),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              TextField(
+                obscureText: true,
+                controller: _password,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Password',
+                ),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              ElevatedButton(
+                onPressed: _submit,
+                child: _isAuthenticating
+                    ? const CircularProgressIndicator()
+                    : const Text('Sign Up'),
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+              const SignInGoogle(),
+              const Spacer(),
+              TextButton(
+                onPressed: _changeToSignIn,
+                child: Text(
+                  'Already A User ? Sign in',
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.primary),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

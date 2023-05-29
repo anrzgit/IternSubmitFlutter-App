@@ -1,13 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:internship_app/screens/auth_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, this.currentUser});
+  const HomeScreen({
+    super.key,
+  });
 
-  final currentUser;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -15,49 +17,67 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    // TODO: implement initState
+    getUser();
     super.initState();
   }
 
+  var currentUser = 'dummy';
+
+  void getUser() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    var obtainedEmail = preferences.getString('email');
+    setState(() {
+      currentUser = obtainedEmail!;
+    });
+  }
+
+  void logout() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.remove('email');
+    await FirebaseAuth.instance.signOut();
+
+    //google sign out
+    await GoogleSignIn().signOut();
+
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const AuthScreen(),
+        ));
+  }
+
+  //To display WebPage
+
+  final webController = WebViewController()
+    ..setJavaScriptMode(JavaScriptMode.unrestricted)
+    ..setBackgroundColor(const Color(0x00000000))
+    ..setNavigationDelegate(
+      NavigationDelegate(
+        onProgress: (int progress) {
+          // Update loading bar.
+        },
+        onPageStarted: (String url) {},
+        onPageFinished: (String url) {},
+        onWebResourceError: (WebResourceError error) {},
+        onNavigationRequest: (NavigationRequest request) {
+          if (request.url.startsWith('https://www.youtube.com/')) {
+            return NavigationDecision.prevent;
+          }
+          return NavigationDecision.navigate;
+        },
+      ),
+    )
+    ..loadRequest(Uri.parse('https://www.google.com'));
+
   @override
   Widget build(BuildContext context) {
-    void logout() async {
-      SharedPreferences preferences = await SharedPreferences.getInstance();
-      preferences.remove('email');
-      await FirebaseAuth.instance.signOut();
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => AuthScreen(),
-          ));
-    }
-
-    //To display WebPage
-
-    final webController = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(const Color(0x00000000))
-      ..setNavigationDelegate(
-        NavigationDelegate(
-          onProgress: (int progress) {
-            // Update loading bar.
-          },
-          onPageStarted: (String url) {},
-          onPageFinished: (String url) {},
-          onWebResourceError: (WebResourceError error) {},
-          onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) {
-              return NavigationDecision.prevent;
-            }
-            return NavigationDecision.navigate;
-          },
-        ),
-      )
-      ..loadRequest(Uri.parse('https://www.google.com'));
-
     return Scaffold(
         appBar: AppBar(
-          title: Text('hello ${widget.currentUser} '),
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Hello $currentUser',
+            style: TextStyle(fontSize: 18),
+          ),
           actions: [
             TextButton.icon(
                 label: const Text('Logout'),

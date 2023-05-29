@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:internship_app/screens/home_screen.dart';
+import 'package:internship_app/widget/sign_In_google.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignIn extends StatefulWidget {
@@ -30,7 +32,7 @@ class _SignInState extends State<SignIn> {
           .collection('internAppUsers')
           .doc(userCredential.user!.uid)
           .get();
-      final data = await docRef.data() as Map<String, dynamic>;
+      final data = docRef.data() as Map<String, dynamic>;
       print(data.entries.toList());
       _userName = data.entries.toList()[2].value;
     } catch (e) {
@@ -47,11 +49,11 @@ class _SignInState extends State<SignIn> {
 
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => HomeScreen(currentUser: _userName),
+        builder: (context) => const HomeScreen(),
       ),
     );
     setState(() {
-      _isLoading = true;
+      _isLoading = false;
     });
   }
 
@@ -65,52 +67,54 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Sign In Page'),
+      body: Container(
+        margin: const EdgeInsets.all(30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'SIGN IN',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            TextField(
+              controller: _email,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Email',
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            TextField(
+              obscureText: true,
+              controller: _password,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Password',
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            ElevatedButton(
+                onPressed: _submit,
+                child: _isLoading
+                    ? const CircularProgressIndicator()
+                    : const Text("Sign In")),
+            const SizedBox(
+              height: 12,
+            ),
+            const SignInGoogle()
+          ],
         ),
-        body: Container(
-          margin: const EdgeInsets.all(30),
-          child: Column(
-            children: [
-              const Text(
-                'Sign In',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              TextField(
-                controller: _email,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Email',
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              TextField(
-                obscureText: true,
-                controller: _password,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Password',
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              ElevatedButton(
-                  onPressed: _submit,
-                  child: _isLoading
-                      ? const CircularProgressIndicator()
-                      : const Text("Sign In"))
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
