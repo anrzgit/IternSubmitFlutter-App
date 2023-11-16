@@ -43,6 +43,8 @@ dependencies:
   shared_preferences: ^2.1.1
   google_sign_in: ^6.1.2
   flutter_svg: ^2.0.6
+  zego_uikit_prebuilt_call: ^3.17.9
+  zego_uikit_signaling_plugin: ^2.6.6
 
 dev_dependencies:
   flutter_test:

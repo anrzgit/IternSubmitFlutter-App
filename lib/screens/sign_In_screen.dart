@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:internship_app/screens/home_screen.dart';
 import 'package:internship_app/widget/sign_In_google.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -22,10 +24,10 @@ class _SignInState extends State<SignIn> {
     setState(() {
       _isLoading = true;
     });
+    final userCredential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: _email.text, password: _password.text);
     try {
-      final userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-              email: _email.text, password: _password.text);
       //get data from firestore
       final docRef = await FirebaseFirestore.instance
           .collection('internAppUsers')
@@ -34,7 +36,23 @@ class _SignInState extends State<SignIn> {
       final data = docRef.data() as Map<String, dynamic>;
       print(data.entries.toList());
       _userName = data.entries.toList()[2].value;
+      //=========================================================
+      try {
+        await ZegoUIKitPrebuiltCallInvitationService().init(
+          appID: yourAppID /*input your AppID*/,
+          appSign: yourAppSign /*input your AppSign*/,
+          userID: userCredential.user!.uid,
+          userName: userCredential.user!.email!,
+          plugins: [ZegoUIKitSignalingPlugin()],
+        );
+        print("zedo initialisation done");
+      } catch (e) {
+        print("error in zego initialisation");
+        print(e.toString());
+      }
+      //=================================================
     } catch (e) {
+      print(e.toString());
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -45,6 +63,7 @@ class _SignInState extends State<SignIn> {
     }
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('email', _email.text);
+    preferences.setString('userId', userCredential.user!.uid);
 
     if (context.mounted) {
       Navigator.of(context).push(

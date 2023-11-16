@@ -8,6 +8,8 @@ import 'package:internship_app/screens/home_screen.dart';
 import 'package:internship_app/screens/sign_In_screen.dart';
 import 'package:internship_app/widget/sign_In_google.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -40,6 +42,21 @@ class _AuthScreenState extends State<AuthScreen> {
         'password': _password.text,
         'username': _userName.text,
       });
+      //=========================================================
+      try {
+        await ZegoUIKitPrebuiltCallInvitationService().init(
+          appID: yourAppID /*input your AppID*/,
+          appSign: yourAppSign /*input your AppSign*/,
+          userID: userCredential.user!.uid,
+          userName: userCredential.user!.email!,
+          plugins: [ZegoUIKitSignalingPlugin()],
+        );
+        print("zedo initialisation done");
+      } catch (e) {
+        print("error in zego initialisation");
+        print(e.toString());
+      }
+      //=================================================
     } catch (e) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(

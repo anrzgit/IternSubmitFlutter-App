@@ -1,40 +1,48 @@
 {
   "project_info": {
-    "project_number": "1015223075340",
-    "project_id": "chatapp-c5cab",
-    "storage_bucket": "chatapp-c5cab.appspot.com"
+    "project_number": "209745045546",
+    "project_id": "internblackoffer",
+    "storage_bucket": "internblackoffer.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1015223075340:android:30c184b9fad087f7d3a429",
+        "mobilesdk_app_id": "1:209745045546:android:3d3e1730d2c4e8c936bb53",
         "android_client_info": {
-          "package_name": "com.example.chat_app"
+          "package_name": "com.example.intern_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1015223075340-mumfp2ls4vb55n05tnaj4un48ouholl7.apps.googleusercontent.com",
+          "client_id": "209745045546-0o5gdomtod2rr98pnu4l8dvr4agii5tq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.intern_app",
+            "certificate_hash": "ad80ad1caa7882db110750bce07b5592b196944d"
+          }
+        },
+        {
+          "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCZQaFW7xfNrHMCeiOD8RBwf5e6lsqoX7o"
+          "current_key": "AIzaSyBi1tMIOARZPyXQ3qpXIAQBf8X_87oV2Xo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1015223075340-mumfp2ls4vb55n05tnaj4un48ouholl7.apps.googleusercontent.com",
+              "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "1015223075340-6qofpo8hg9ssujpdq16m7l8lhhgenc5q.apps.googleusercontent.com",
+              "client_id": "209745045546-7iivm7enoqe01k77bl80e08ngrd1lb1a.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.chatApp"
+                "bundle_id": "com.example.internApp"
               }
             }
           ]
@@ -43,34 +51,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1015223075340:android:a85e546b441f6921d3a429",
+        "mobilesdk_app_id": "1:209745045546:android:458bfda53777f13936bb53",
         "android_client_info": {
           "package_name": "com.example.internship_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1015223075340-mumfp2ls4vb55n05tnaj4un48ouholl7.apps.googleusercontent.com",
+          "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCZQaFW7xfNrHMCeiOD8RBwf5e6lsqoX7o"
+          "current_key": "AIzaSyBi1tMIOARZPyXQ3qpXIAQBf8X_87oV2Xo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1015223075340-mumfp2ls4vb55n05tnaj4un48ouholl7.apps.googleusercontent.com",
+              "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "1015223075340-6qofpo8hg9ssujpdq16m7l8lhhgenc5q.apps.googleusercontent.com",
+              "client_id": "209745045546-7iivm7enoqe01k77bl80e08ngrd1lb1a.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.chatApp"
+                "bundle_id": "com.example.internApp"
               }
             }
           ]

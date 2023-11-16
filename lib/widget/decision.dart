@@ -22,6 +22,7 @@ class _DecisionState extends State<Decision> {
   void getvaldatonData() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     var obtainedEmail = preferences.getString('email');
+
     setState(() {
       finalEmail = obtainedEmail;
     });

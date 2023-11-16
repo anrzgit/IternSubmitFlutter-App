@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,42 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDiraddnOmZkZsXezxro6Km19qv2Cu3cQ8',
-    appId: '1:1015223075340:web:bb451c1ed45f0357d3a429',
-    messagingSenderId: '1015223075340',
-    projectId: 'chatapp-c5cab',
-    authDomain: 'chatapp-c5cab.firebaseapp.com',
-    storageBucket: 'chatapp-c5cab.appspot.com',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCZQaFW7xfNrHMCeiOD8RBwf5e6lsqoX7o',
-    appId: '1:1015223075340:android:a85e546b441f6921d3a429',
-    messagingSenderId: '1015223075340',
-    projectId: 'chatapp-c5cab',
-    storageBucket: 'chatapp-c5cab.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBgO3LnPU8xzX7EhzT7otg0KrMP-caYTes',
-    appId: '1:1015223075340:ios:6d787e733dd27c99d3a429',
-    messagingSenderId: '1015223075340',
-    projectId: 'chatapp-c5cab',
-    storageBucket: 'chatapp-c5cab.appspot.com',
-    iosClientId:
-        '1015223075340-uubp1mqcu2n4pd398vpmhdrar79qftcs.apps.googleusercontent.com',
-    iosBundleId: 'com.example.internshipApp',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBgO3LnPU8xzX7EhzT7otg0KrMP-caYTes',
-    appId: '1:1015223075340:ios:f27fffc5e3ae7243d3a429',
-    messagingSenderId: '1015223075340',
-    projectId: 'chatapp-c5cab',
-    storageBucket: 'chatapp-c5cab.appspot.com',
-    iosClientId:
-        '1015223075340-mp47f1ejgbfiv3tvcpfgs418957jq6ct.apps.googleusercontent.com',
-    iosBundleId: 'com.example.internshipApp.RunnerTests',
+    apiKey: 'AIzaSyBi1tMIOARZPyXQ3qpXIAQBf8X_87oV2Xo',
+    appId: '1:209745045546:android:458bfda53777f13936bb53',
+    messagingSenderId: '209745045546',
+    projectId: 'internblackoffer',
+    storageBucket: 'internblackoffer.appspot.com',
   );
 }

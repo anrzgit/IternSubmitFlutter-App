@@ -1,9 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:internship_app/pages/history.dart';
+import 'package:internship_app/pages/home.dart';
+import 'package:internship_app/pages/profile.dart';
 import 'package:internship_app/screens/auth_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -21,72 +26,81 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  var currentUser = 'dummy';
+  int _currentIndex = 0;
+  final List<Widget> _children = [
+    Home(),
+    Profile(),
+  ];
 
-  void getUser() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    var obtainedEmail = preferences.getString('email');
+  void onTabTapped(int index) {
     setState(() {
-      currentUser = obtainedEmail!;
+      _currentIndex = index;
     });
   }
 
-  void logout() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.remove('email');
-    await FirebaseAuth.instance.signOut();
+  var currentUser = 'Not Present';
 
-    //google sign out
-    await GoogleSignIn().signOut();
-    if (context.mounted) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const AuthScreen(),
-        ),
-      );
-    }
+  void getUser() async {
+    // SharedPreferences preferences = await SharedPreferences.getInstance();
+    // var obtainedEmail = preferences.getString('email');
+    final user = FirebaseAuth.instance.currentUser!;
+    setState(() {
+      currentUser = user.email!;
+    });
   }
 
-  //To display WebPage
+  // void logout() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   preferences.remove('email');
+  //   await FirebaseAuth.instance.signOut();
 
-  final webController = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setBackgroundColor(const Color(0x00000000))
-    ..setNavigationDelegate(
-      NavigationDelegate(
-        onProgress: (int progress) {
-          // Update loading bar.
-        },
-        onPageStarted: (String url) {},
-        onPageFinished: (String url) {},
-        onWebResourceError: (WebResourceError error) {},
-        onNavigationRequest: (NavigationRequest request) {
-          if (request.url.startsWith('https://www.youtube.com/')) {
-            return NavigationDecision.prevent;
-          }
-          return NavigationDecision.navigate;
-        },
-      ),
-    )
-    ..loadRequest(Uri.parse('https://www.google.com'));
+  //   ZegoUIKitPrebuiltCallInvitationService().uninit();
+
+  //   //google sign out
+  //   await GoogleSignIn().signOut();
+  //   if (context.mounted) {
+  //     Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => const AuthScreen(),
+  //       ),
+  //     );
+  //   }
+  // }
+
+  //To display WebPage
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(
-            'Hello $currentUser',
-            style: const TextStyle(fontSize: 18),
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   title: Text(
+      //     'Hello $currentUser',
+      //     style: const TextStyle(fontSize: 18),
+      //   ),
+      //   actions: [
+      //     TextButton.icon(
+      //         label: const Text('Logout'),
+      //         onPressed: logout,
+      //         icon: const Icon(Icons.logout))
+      //   ],
+      // ),
+      body: _children[_currentIndex],
+      bottomNavigationBar: CupertinoTabBar(
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          actions: [
-            TextButton.icon(
-                label: const Text('Logout'),
-                onPressed: logout,
-                icon: const Icon(Icons.logout))
-          ],
-        ),
-        body: WebViewWidget(controller: webController));
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Calls',
+          ),
+        ],
+      ),
+    );
   }
 }
