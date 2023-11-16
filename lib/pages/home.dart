@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
     const _kFontFam = 'MyFlutterApp';
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title: const Text('ThaiSeva Dashboard'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

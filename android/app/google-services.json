@@ -1,48 +1,40 @@
 {
   "project_info": {
-    "project_number": "209745045546",
-    "project_id": "internblackoffer",
-    "storage_bucket": "internblackoffer.appspot.com"
+    "project_number": "113396010755",
+    "project_id": "thaiseva-85cda",
+    "storage_bucket": "thaiseva-85cda.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:209745045546:android:3d3e1730d2c4e8c936bb53",
+        "mobilesdk_app_id": "1:113396010755:android:865ef1b4bdbfda4c572336",
         "android_client_info": {
-          "package_name": "com.example.intern_app"
+          "package_name": "com.example.adminportal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "209745045546-0o5gdomtod2rr98pnu4l8dvr4agii5tq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.intern_app",
-            "certificate_hash": "ad80ad1caa7882db110750bce07b5592b196944d"
-          }
-        },
-        {
-          "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
+          "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBi1tMIOARZPyXQ3qpXIAQBf8X_87oV2Xo"
+          "current_key": "AIzaSyCMBbIQqie59lAZYwyasjKYr0iF7Z4oqdo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
+              "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "209745045546-7iivm7enoqe01k77bl80e08ngrd1lb1a.apps.googleusercontent.com",
+              "client_id": "113396010755-0j5ggphfeohc0br083osita022ao4ffa.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.internApp"
+                "bundle_id": "com.example.cehpoint.RunnerTests"
               }
             }
           ]
@@ -51,34 +43,202 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:209745045546:android:458bfda53777f13936bb53",
+        "mobilesdk_app_id": "1:113396010755:android:951b6b7b46f2a561572336",
         "android_client_info": {
-          "package_name": "com.example.internship_app"
+          "package_name": "com.example.cehpoint"
         }
       },
       "oauth_client": [
         {
-          "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
+          "client_id": "113396010755-m40vjq2j34bcepsv1d2n62gsoe5hpb4t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cehpoint",
+            "certificate_hash": "9069ff778795343c6e83b40cdbaf830782a1b383"
+          }
+        },
+        {
+          "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBi1tMIOARZPyXQ3qpXIAQBf8X_87oV2Xo"
+          "current_key": "AIzaSyCMBbIQqie59lAZYwyasjKYr0iF7Z4oqdo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "209745045546-6bsafsgbpcrhcd0nkhqaukkteu6scouf.apps.googleusercontent.com",
+              "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "209745045546-7iivm7enoqe01k77bl80e08ngrd1lb1a.apps.googleusercontent.com",
+              "client_id": "113396010755-0j5ggphfeohc0br083osita022ao4ffa.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.internApp"
+                "bundle_id": "com.example.cehpoint.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113396010755:android:05770877c584372d572336",
+        "android_client_info": {
+          "package_name": "com.example.restro_portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113396010755-p13vtqb08240osh86j1h6bjqmsp9q0at.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.restro_portal",
+            "certificate_hash": "d2b8a9d902d68ca5a221d3bf532a814e82ed9e53"
+          }
+        },
+        {
+          "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMBbIQqie59lAZYwyasjKYr0iF7Z4oqdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "113396010755-0j5ggphfeohc0br083osita022ao4ffa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cehpoint.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113396010755:android:5eaf477eaa0111bc572336",
+        "android_client_info": {
+          "package_name": "com.example.studysakha_teacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMBbIQqie59lAZYwyasjKYr0iF7Z4oqdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "113396010755-0j5ggphfeohc0br083osita022ao4ffa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cehpoint.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113396010755:android:e7c9776f82e6b23f572336",
+        "android_client_info": {
+          "package_name": "com.example.thaiseva_support"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113396010755-tvftilppkqerm4pcblahu5l71m6qbjdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thaiseva_support",
+            "certificate_hash": "ad80ad1caa7882db110750bce07b5592b196944d"
+          }
+        },
+        {
+          "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMBbIQqie59lAZYwyasjKYr0iF7Z4oqdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "113396010755-0j5ggphfeohc0br083osita022ao4ffa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cehpoint.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113396010755:android:2711444f909cdc74572336",
+        "android_client_info": {
+          "package_name": "com.thaiseva_call_support"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMBbIQqie59lAZYwyasjKYr0iF7Z4oqdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113396010755-quds375krqgjn488bu8ai1uv2n11ojuk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "113396010755-0j5ggphfeohc0br083osita022ao4ffa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cehpoint.RunnerTests"
               }
             }
           ]

@@ -30,7 +30,7 @@ class _HistoryState extends State<History> {
                       "anrz_zego", //You need to use the resourceID that you created in the subsequent steps. Please continue reading this document.
                   invitees: [
                     ZegoUIKitUser(
-                      id: 'eJlfAGSdiCbgFZNCgKWvwCL6FZd2',
+                      id: 'xKR377Z3nCUdDbKipSlcPzVPLuF2',
                       name: 'raaz4995azh@gmail.com',
                     )
                   ],
@@ -49,8 +49,27 @@ class _HistoryState extends State<History> {
                       "anrz_zego", //You need to use the resourceID that you created in the subsequent steps. Please continue reading this document.
                   invitees: [
                     ZegoUIKitUser(
-                      id: 'OOlxeROjIHNiC5B6bMqWDBzQKtn2',
+                      id: 'eXpXfxtoFTU6NMmDqeqKVlCcqQ72',
                       name: "anrz.test@gmail.com",
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                const Text(
+                  "call Thaiseva",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                ZegoSendCallInvitationButton(
+                  isVideoCall: true,
+                  resourceID:
+                      "anrz_zego", //You need to use the resourceID that you created in the subsequent steps. Please continue reading this document.
+                  invitees: [
+                    ZegoUIKitUser(
+                      id: 'gYhJkibFV2ahmzHoXtzIj338KWl2',
+                      name: "Thaiseva App",
                     ),
                   ],
                 ),

@@ -80,9 +80,7 @@ class _ProfileState extends State<Profile> {
               child: ListTile(
                 leading: Icon(Icons.phone),
                 title: Text('Phone'),
-                subtitle: Text(user.phoneNumber!.isEmpty
-                    ? 'Not Provided'
-                    : '+1 123 456 7890'),
+                subtitle: Text(user.phoneNumber ?? 'Not Provided'),
               ),
             ),
             Card(
