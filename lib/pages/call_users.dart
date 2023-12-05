@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
-class History extends StatefulWidget {
-  const History({super.key});
+class CallUsers extends StatefulWidget {
+  const CallUsers({super.key});
 
   @override
-  State<History> createState() => _HistoryState();
+  State<CallUsers> createState() => _CallUsers();
 }
 
-class _HistoryState extends State<History> {
+class _CallUsers extends State<CallUsers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Call History"),
+        title: const Text("Call Users"),
       ),
       body: Center(
         child: Column(

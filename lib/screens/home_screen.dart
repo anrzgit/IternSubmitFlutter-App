@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:internship_app/pages/history.dart';
+import 'package:internship_app/pages/call_users.dart';
 import 'package:internship_app/pages/home.dart';
 import 'package:internship_app/pages/profile.dart';
 import 'package:internship_app/screens/auth_screen.dart';
@@ -28,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int _currentIndex = 0;
   final List<Widget> _children = [
-    Home(),
-    Profile(),
+    const Home(),
+    const Profile(),
   ];
 
   void onTabTapped(int index) {
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Calls',
+            label: 'Profile',
           ),
         ],
       ),

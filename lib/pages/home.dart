@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:internship_app/pages/history.dart';
+import 'package:internship_app/pages/call_users.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -21,14 +21,14 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            Card(
+            const Card(
               child: ListTile(
                 leading: Icon(Icons.call),
                 title: Text('Active Calls'),
                 trailing: Text('5'),
               ),
             ),
-            Card(
+            const Card(
               child: ListTile(
                 leading: Icon(Icons.people),
                 title: Text('Online Users'),
@@ -37,12 +37,12 @@ class _HomeState extends State<Home> {
             ),
             Card(
               child: ListTile(
-                leading: Icon(Icons.history),
-                title: Text('Call History'),
-                trailing: Icon(Icons.arrow_forward),
+                leading: const Icon(Icons.history),
+                title: const Text('Call Users'),
+                trailing: const Icon(Icons.arrow_forward),
                 onTap: () {
                   Navigator.of(context).push(CupertinoPageRoute(
-                    builder: (context) => History(),
+                    builder: (context) => const CallUsers(),
                   ));
                 },
               ),

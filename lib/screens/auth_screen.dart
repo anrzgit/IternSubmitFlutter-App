@@ -109,7 +109,7 @@ class _AuthScreenState extends State<AuthScreen> {
               Image.asset("assets/images/signin_balls.png"),
               const Spacer(),
               const Text(
-                'Alleaze InternApp',
+                'ThaiSeva Support',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

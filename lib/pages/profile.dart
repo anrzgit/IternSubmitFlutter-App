@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:internship_app/pages/history.dart';
+import 'package:internship_app/pages/call_users.dart';
 import 'package:internship_app/pages/home.dart';
 import 'package:internship_app/pages/profile.dart';
 import 'package:internship_app/screens/auth_screen.dart';
@@ -76,13 +76,13 @@ class _ProfileState extends State<Profile> {
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 20),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.phone),
-                title: Text('Phone'),
-                subtitle: Text(user.phoneNumber ?? 'Not Provided'),
-              ),
-            ),
+            // Card(
+            //   child: ListTile(
+            //     leading: Icon(Icons.phone),
+            //     title: Text('Phone'),
+            //     subtitle: Text(user.phoneNumber ?? 'Not Provided'),
+            //   ),
+            // ),
             Card(
               child: ListTile(
                 leading: Icon(Icons.email),
