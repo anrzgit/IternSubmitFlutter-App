@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:internship_app/screens/auth_screen.dart';
 import 'package:internship_app/screens/home_screen.dart';
+import 'package:internship_app/user_data/navigation_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Decision extends StatefulWidget {
@@ -31,6 +32,6 @@ class _DecisionState extends State<Decision> {
 
   @override
   Widget build(BuildContext context) {
-    return finalEmail != null ? const HomeScreen() : const AuthScreen();
+    return finalEmail != null ? const MyNavigationBar() : const AuthScreen();
   }
 }

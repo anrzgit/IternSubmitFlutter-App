@@ -47,6 +47,7 @@ dependencies:
   zego_uikit_signaling_plugin: ^2.6.6
   change_app_package_name: ^1.1.0
   flutter_launcher_icons: ^0.13.1
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -77,7 +78,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/signin_balls.png
-    - assets/svgs/
+    - assets/
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

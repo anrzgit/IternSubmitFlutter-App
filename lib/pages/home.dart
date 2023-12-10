@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:internship_app/pages/call_users.dart';
+import 'package:internship_app/user_data/navigation_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -21,11 +22,16 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            const Card(
+            Card(
               child: ListTile(
-                leading: Icon(Icons.call),
-                title: Text('Active Calls'),
-                trailing: Text('5'),
+                onTap: () {
+                  Navigator.of(context).push(CupertinoPageRoute(
+                    builder: (context) => const MyNavigationBar(),
+                  ));
+                },
+                leading: const Icon(Icons.call),
+                title: const Text('Active Calls'),
+                trailing: const Text('5'),
               ),
             ),
             const Card(

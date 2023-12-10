@@ -7,6 +7,7 @@ import 'package:internship_app/firebase_options.dart';
 import 'package:internship_app/screens/auth_screen.dart';
 import 'package:internship_app/screens/home_screen.dart';
 import 'package:internship_app/service/service.dart';
+import 'package:internship_app/user_data/navigation_bar.dart';
 import 'package:internship_app/widget/decision.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
@@ -58,7 +59,7 @@ class _MyAppState extends State<MyApp> {
               final user = FirebaseAuth.instance.currentUser!;
               final zego = ZegoService();
               zego.initZego(user.email!, user.uid);
-              return const HomeScreen();
+              return const MyNavigationBar();
             }
           } else if (snapshot.hasError) {
             return Center(

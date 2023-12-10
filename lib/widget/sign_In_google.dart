@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:internship_app/screens/home_screen.dart';
+import 'package:internship_app/user_data/navigation_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
@@ -69,7 +70,7 @@ class _SignInGoogleState extends State<SignInGoogle> {
       if (context.mounted) {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
+            builder: (context) => const MyNavigationBar(),
           ),
         );
       }

@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:internship_app/screens/home_screen.dart';
 import 'package:internship_app/screens/sign_In_screen.dart';
+import 'package:internship_app/user_data/navigation_bar.dart';
 import 'package:internship_app/widget/sign_In_google.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
@@ -77,7 +78,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
+        builder: (context) => const MyNavigationBar(),
       ),
     );
   }

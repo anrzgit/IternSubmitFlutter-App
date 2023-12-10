@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:internship_app/core/zego_card.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
 class CallUsers extends StatefulWidget {
@@ -18,25 +20,14 @@ class _CallUsers extends State<CallUsers> {
       body: Center(
         child: Column(
           children: [
-            Row(
-              children: [
-                const Text(
-                  "call raaz",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-                ZegoSendCallInvitationButton(
-                  isVideoCall: false,
-                  resourceID:
-                      "anrz_zego", //You need to use the resourceID that you created in the subsequent steps. Please continue reading this document.
-                  invitees: [
-                    ZegoUIKitUser(
-                      id: 'xKR377Z3nCUdDbKipSlcPzVPLuF2',
-                      name: 'raaz4995azh@gmail.com',
-                    )
-                  ],
-                ),
-              ],
-            ),
+            const ZegoCard(
+                displayName: 'anrz',
+                name: 'anrz',
+                id: 'xKR377Z3nCUdDbKipSlcPzVPLuF2'),
+            const ZegoCard(
+                displayName: 'Thaiseva App',
+                name: 'thaiseva@gmail.com',
+                id: '2ty3HuPHqTfVr7su5vnX7EJGnJb2'),
             Row(
               children: [
                 const Text(
@@ -68,8 +59,8 @@ class _CallUsers extends State<CallUsers> {
                       "anrz_zego", //You need to use the resourceID that you created in the subsequent steps. Please continue reading this document.
                   invitees: [
                     ZegoUIKitUser(
-                      id: 'gYhJkibFV2ahmzHoXtzIj338KWl2',
-                      name: "Thaiseva App",
+                      id: '2ty3HuPHqTfVr7su5vnX7EJGnJb2',
+                      name: "thaiseva@gmail.com",
                     ),
                   ],
                 ),
