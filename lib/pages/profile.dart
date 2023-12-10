@@ -45,16 +45,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Page'),
-        actions: <Widget>[
-          TextButton.icon(
-            label: Text('Logout'),
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              logout();
-            },
-          ),
-        ],
+        title: const Text('Profile Page'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -65,17 +56,17 @@ class _ProfileState extends State<Profile> {
               backgroundImage: NetworkImage(
                   user.photoURL ?? 'https://via.placeholder.com/150'),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               user.displayName ?? 'John Doe',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               user.email ?? 'johndoe@example.com',
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Card(
             //   child: ListTile(
             //     leading: Icon(Icons.phone),
@@ -85,10 +76,23 @@ class _ProfileState extends State<Profile> {
             // ),
             Card(
               child: ListTile(
-                leading: Icon(Icons.email),
-                title: Text('Email'),
+                leading: const Icon(Icons.email),
+                title: const Text('Email'),
                 subtitle: Text(
                   user.email ?? 'johndoe@example.com',
+                ),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                onTap: () => logout(),
+                leading: const Icon(
+                  Icons.logout,
+                  color: Colors.red,
+                ),
+                title: const Text(
+                  'Logout',
+                  style: TextStyle(color: Colors.red),
                 ),
               ),
             ),
